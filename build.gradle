@@ -1,0 +1,17 @@
+group 'com.l2lab'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+}
