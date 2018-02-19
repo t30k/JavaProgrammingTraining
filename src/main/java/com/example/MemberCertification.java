@@ -1,4 +1,4 @@
-package Certification;
+package com.example;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static Certification.MemberCertification.CertifiedItems.*;
+import static com.example.MemberCertification.CertifiedItems.*;
 
 public class MemberCertification {
     public static final String EXPECTED_EMAIL = "oshima@gmail.com";
