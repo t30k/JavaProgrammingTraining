@@ -9,7 +9,11 @@ import java.util.*;
 
 import static com.example.MemberCertification.CertifiedItems.*;
 
+/**
+ * 会員の再認証サンプル
+ */
 public class MemberCertification {
+
     public static final String EXPECTED_EMAIL = "oshima@gmail.com";
     public static final String EXPECTED_BIRTHDAY = "1990/01/01";
     public static final String EXPECTED_NAME = "大嶋 一哉";
