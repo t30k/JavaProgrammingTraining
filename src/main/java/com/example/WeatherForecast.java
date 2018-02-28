@@ -25,12 +25,12 @@ public class WeatherForecast {
 
     static List<WeatherData> weatherDataList = new ArrayList<>();
 
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) {
         try {
             File file = new File("../JavaProgrammingTraining/src/main/java/com/example/csv/wf.csv");
             BufferedReader br = new BufferedReader(new FileReader(file));
             String str = br.readLine();
-            while(str != null) {
+            while (str != null) {
                 WeatherData weatherData = new WeatherData(str.split(","));
                 weatherDataList.add(weatherData);
                 str = br.readLine();
@@ -41,7 +41,7 @@ public class WeatherForecast {
             });
 
             br.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
