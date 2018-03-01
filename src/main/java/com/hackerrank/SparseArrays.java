@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class SparseArrays {
 
@@ -12,28 +14,32 @@ public class SparseArrays {
         try {
             File file = new File("../JavaProgrammingTraining/src/main/java/com/hackerrank/text/sa.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
-            String str = br.readLine();
-            String n[] = new String[Integer.parseInt(str)];
-            str = br.readLine();
-            for (int i = 0; i < n.length; i++) {
-                n[i] = str;
-                str = br.readLine();
-            }
-            int querySize = Integer.parseInt(str);
-            str = br.readLine();
-            for (int i = 0; i < querySize; i++) {
-                long count = queryMatchCount(n, str);
+            final int n = Integer.parseInt(br.readLine());
+            if (isSizeMissMatch(n)) return;
+            List<String> list = new ArrayList<>();
+            Stream<String> nlines = br.lines();
+            nlines.limit(n).forEach(l -> {
+                list.add(l);
+            });
+            final int q = Integer.parseInt(br.readLine());
+            if (isSizeMissMatch(q)) return;
+            Stream<String> qlines = br.lines();
+            qlines.limit(q).forEach(l -> {
+                long count = queryMatchCount(list, l);
                 output(count);
-                str = br.readLine();
-            }
+            });
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    static long queryMatchCount(String[] n, String q) {
-        return Arrays.stream(n).filter(v -> v.equals(q)).count();
+    static boolean isSizeMissMatch(int num) {
+        return !(num >= 1 && num <= 1000);
+    }
+
+    static long queryMatchCount(List<String> list, String l) {
+        return list.stream().filter(v -> v.equals(l)).count();
     }
 
     static void output(long count) {
