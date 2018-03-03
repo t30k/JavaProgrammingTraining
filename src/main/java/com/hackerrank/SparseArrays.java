@@ -17,14 +17,14 @@ public class SparseArrays {
             final int n = Integer.parseInt(br.readLine());
             if (isSizeMissMatch(n)) return;
             List<String> list = new ArrayList<>();
-            Stream<String> nlines = br.lines();
-            nlines.limit(n).forEach(l -> {
+            Stream<String> nLines = br.lines();
+            nLines.limit(n).forEach(l -> {
                 list.add(l);
             });
             final int q = Integer.parseInt(br.readLine());
             if (isSizeMissMatch(q)) return;
-            Stream<String> qlines = br.lines();
-            qlines.limit(q).forEach(l -> {
+            Stream<String> qLines = br.lines();
+            qLines.limit(q).forEach(l -> {
                 long count = queryMatchCount(list, l);
                 output(count);
             });
